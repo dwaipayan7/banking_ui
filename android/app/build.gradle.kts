@@ -37,6 +37,23 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions += "default"
+
+    productFlavors {
+        create("user") {
+            resValue("string", "app_name", "banking_ui")
+        }
+        create("admin") {
+            resValue("string", "app_name", "banking_ui.admin")
+            applicationIdSuffix = ".admin"
+        }
+        create("dev") {
+            resValue("string", "app_name", "banking_ui.dev")
+            applicationIdSuffix = ".dev"
+        }
+    }
+
 }
 
 flutter {
